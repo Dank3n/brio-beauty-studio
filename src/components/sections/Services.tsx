@@ -106,8 +106,8 @@ export function Services() {
 
                     <div className="mt-6">
                       <BookCta
-                        variant="secondary"
-                        className="w-full border-line group-hover:border-champagne"
+                        variant="primary"
+                        className="cta-highlight w-full font-semibold tracking-[0.06em]"
                         label="Programează-te"
                         serviceId={service.id}
                         meroServiceId={meroServiceIds[service.id]}

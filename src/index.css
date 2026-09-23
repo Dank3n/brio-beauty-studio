@@ -101,4 +101,22 @@
       transform: translateX(200%) skewX(-20deg);
     }
   }
+
+  @keyframes cta-glow {
+    0%,
+    100% {
+      box-shadow:
+        0 0 0 0 color-mix(in srgb, var(--color-champagne) 0%, transparent),
+        0 10px 28px -14px color-mix(in srgb, var(--color-champagne) 55%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 6px color-mix(in srgb, var(--color-champagne) 18%, transparent),
+        0 12px 32px -12px color-mix(in srgb, var(--color-champagne) 70%, transparent);
+    }
+  }
+
+  .cta-highlight {
+    animation: cta-glow 2.8s ease-in-out infinite;
+  }
 }
