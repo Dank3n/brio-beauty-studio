@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #100e0c;
+  --color-surface: #1a1714;
+  --color-elevated: #221e1a;
+  --color-line: rgb(243 238 231 / 0.1);
+  --color-champagne: #c8a97e;
+  --color-champagne-soft: #d4bc9a;
+  --color-muted: #9a928a;
+  --color-text: #f3eee7;
+  --color-text-soft: #d8d0c6;
+  --color-ink: #f3eee7;
+  --color-ink-soft: #d8d0c6;
+  --color-ivory: #100e0c;
+  --color-nude: #1a1714;
+  --color-taupe: #9a928a;
+  --color-cream: #221e1a;
+  --color-sand: #2c2722;
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 20px 50px -28px rgb(0 0 0 / 0.55);
+  --shadow-lift: 0 12px 32px -16px rgb(0 0 0 / 0.45);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-bg font-sans text-text antialiased;
+    margin: 0;
+    min-width: 320px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
+    color: var(--color-text);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-champagne);
+    outline-offset: 3px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .editorial-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-sand) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-sand) 55%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phone-glare {
+    animation: phone-glare 10s infinite linear;
+  }
+
+  @keyframes phone-glare {
+    0% {
+      transform: translateX(0) skewX(-20deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-20deg);
+    }
+  }
+}
